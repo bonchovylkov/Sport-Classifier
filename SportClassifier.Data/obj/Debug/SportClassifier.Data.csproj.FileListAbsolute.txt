@@ -1,0 +1,16 @@
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.csprojResolveAssemblyReference.cache
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\SportClassifier.Data.dll.config
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\SportClassifier.Data.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\SportClassifier.Data.pdb
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\EntityFramework.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\SportClassifier.Models.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\SportClassifier.Models.pdb
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\EntityFramework.xml
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.pdb
