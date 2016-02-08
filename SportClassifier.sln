@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportClassifier.Data", "Spo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportClassifier.Models", "SportClassifier.Models\SportClassifier.Models.csproj", "{E0C0F718-8755-4D25-9074-5FE727C777E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportClassifier.Crowler", "SportClassifier.Crowler\SportClassifier.Crowler.csproj", "{5CC80192-29CB-446D-9E2B-C04D122E971E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E0C0F718-8755-4D25-9074-5FE727C777E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0C0F718-8755-4D25-9074-5FE727C777E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0C0F718-8755-4D25-9074-5FE727C777E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC80192-29CB-446D-9E2B-C04D122E971E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC80192-29CB-446D-9E2B-C04D122E971E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC80192-29CB-446D-9E2B-C04D122E971E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC80192-29CB-446D-9E2B-C04D122E971E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

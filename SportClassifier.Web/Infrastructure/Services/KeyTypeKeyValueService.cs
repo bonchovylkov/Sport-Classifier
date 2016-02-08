@@ -15,11 +15,11 @@ namespace SportClassifier.Web.Infrastructure.Services
 
         }
 
-        //public KeyValue GetKeyValueByIntCode(string code)
-        //{
-        //   var kv = this.Data.KeyValues.All().FirstOrDefault(s => s.KeyValueIntCode == code);
-        //    return kv;
-        //}
+        public KeyValue GetKeyValueByIntCode(string code)
+        {
+           var kv = this.Data.KeyValues.All().FirstOrDefault(s => s.KeyValueIntCode == code);
+            return kv;
+        }
 
     }
 }

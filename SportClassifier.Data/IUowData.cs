@@ -13,40 +13,17 @@ namespace SportClassifier.Data
         DbContext Context { get; }
         IRepository<User> Users { get; }
 
-        //IRepository<Field> Fields { get; }
-        //IRepository<SatelliteDownload> DownloadedFiles { get; }
-        //IRepository<Forecast> Forecasts { get; }
-        //IRepository<Coordinate> Coordinates { get; }
-        //IRepository<DownloadQueue> DownloadQueue { get; }
-        //IRepository<Indices> Indices { get; }
+        IRepository<Category> Categories { get; }
+        IRepository<Source> Sources { get; }
+        IRepository<SourceWebsite> SourceWebsites { get; }
+        IRepository<NewsItem> NewsItems { get; }
 
-        //IRepository<KeyType> KeyTypes { get; }
-        //IRepository<KeyValue> KeyValues { get; }
-        //IRepository<Message> Messages { get; }
+        IRepository<KeyType> KeyTypes { get; }
+        IRepository<KeyValue> KeyValues { get; }
+        IRepository<Setting> Settings { get;  }
 
-        //IRepository<AgmRole> AgmRoles { get; }
+        IRepository<FailedUrl> FailedUrls { get;  }
 
-        //IRepository<AgmPermission> AgmPermissions { get; }
-
-        //IRepository<AgmModule> AgmModules { get; }
-
-        ////IRepository<AgmUserRole> AgmUserRoles { get;  }
-        //IRepository<FieldNote> FieldNotes { get; }
-
-        //IRepository<CropType> CropTypes { get; }
-
-        //IRepository<ArticleLink> ArticleLinks { get; }
-
-        //IRepository<Article> Articles { get; }
-
-        //IRepository<Setting> Settings { get; }
-
-
-        
-        //IRepository<PhenologyPlant> PhenologyPlants { get; }
-        //IRepository<PhenologyPhase> PhenologyPhases { get; }
-
-        // IRepository<PhenologyPhaseName> PhenologyPhaseNames { get; }
         
 
         int SaveChanges();

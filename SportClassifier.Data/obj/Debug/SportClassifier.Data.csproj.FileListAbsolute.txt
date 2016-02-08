@@ -14,3 +14,9 @@ E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\Micros
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.dll
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.pdb
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.Test.resources
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.csproj.GenerateResource.Cache
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.removeFkCategory.resources
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.changeFkSourceWebsite.resources
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.updateSourceCategoryFK.resources
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.updateCategory.resources

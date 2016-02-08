@@ -57,5 +57,51 @@ namespace SportClassifier.Data
         }
 
 
+
+
+        public IRepository<Category> Categories
+        {
+            get { return this.GetRepository<Category>(); }
+        }
+
+        public IRepository<Source> Sources
+        {
+            get { return this.GetRepository<Source>(); }
+        }
+
+        public IRepository<SourceWebsite> SourceWebsites
+        {
+            get { return this.GetRepository<SourceWebsite>(); }
+        }
+
+        public IRepository<NewsItem> NewsItems
+        {
+            get { return this.GetRepository<NewsItem>(); }
+        }
+
+
+        public IRepository<KeyType> KeyTypes
+        {
+          get { return this.GetRepository<KeyType>(); }
+          
+        }
+
+        public IRepository<KeyValue> KeyValues
+        {
+            get { return this.GetRepository<KeyValue>(); }
+          
+        }
+
+        public IRepository<Setting> Settings
+        {
+           get { return this.GetRepository<Setting>(); }
+            
+        }
+
+
+        public IRepository<FailedUrl> FailedUrls
+        {
+            get { return this.GetRepository<FailedUrl>(); }
+        }
     }
 }

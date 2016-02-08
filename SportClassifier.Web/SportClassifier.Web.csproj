@@ -40,6 +40,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Argotic.Common, Version=2008.0.2.0, Culture=neutral, PublicKeyToken=84b2ce808fb02469, processorArchitecture=MSIL">
+      <HintPath>..\packages\Argotic.Common.2008.0.2.0\lib\Net35\Argotic.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Argotic.Core, Version=2008.0.2.0, Culture=neutral, PublicKeyToken=84b2ce808fb02469, processorArchitecture=MSIL">
+      <HintPath>..\packages\Argotic.Core.2008.0.2.0\lib\Net35\Argotic.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Argotic.Extensions, Version=2008.0.2.0, Culture=neutral, PublicKeyToken=84b2ce808fb02469, processorArchitecture=MSIL">
+      <HintPath>..\packages\Argotic.Extensions.2008.0.2.0\lib\Net35\Argotic.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -267,8 +279,10 @@
     <Compile Include="Infrastructure\ModelBinders\EntityModelBinderProvider.cs" />
     <Compile Include="Infrastructure\ObjectFactory.cs" />
     <Compile Include="Infrastructure\Services\BaseService.cs" />
+    <Compile Include="Infrastructure\Services\Contracts\ICrowlingService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\IHomeService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\IKeyTypeKeyValueService.cs" />
+    <Compile Include="Infrastructure\Services\CrowlingService.cs" />
     <Compile Include="Infrastructure\Services\HomeService.cs" />
     <Compile Include="Infrastructure\Services\KeyTypeKeyValueService.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

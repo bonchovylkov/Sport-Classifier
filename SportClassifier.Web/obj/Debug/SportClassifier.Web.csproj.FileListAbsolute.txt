@@ -135,3 +135,6 @@ E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Web\bin\ko\System.Spa
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Web\bin\ru\System.Spatial.resources.dll
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Web\bin\zh-Hans\System.Spatial.resources.dll
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Web\bin\zh-Hant\System.Spatial.resources.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Web\bin\Argotic.Common.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Web\bin\Argotic.Core.dll
+E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Web\bin\Argotic.Extensions.dll

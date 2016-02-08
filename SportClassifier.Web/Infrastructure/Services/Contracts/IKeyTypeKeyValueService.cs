@@ -9,6 +9,6 @@ namespace SportClassifier.Web.Infrastructure.Services.Contracts
 {
    public interface IKeyTypeKeyValueService
     {
-      //  KeyValue GetKeyValueByIntCode(string code);
+        KeyValue GetKeyValueByIntCode(string code);
     }
 }
