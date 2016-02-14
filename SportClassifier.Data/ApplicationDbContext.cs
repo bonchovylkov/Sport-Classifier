@@ -32,7 +32,7 @@ namespace SportClassifier.Data
         public IDbSet<KeyValue> KeyValues { get; set; }
         public IDbSet<Setting> Settings { get; set; }
         public IDbSet<FailedUrl> FailedUrls { get; set; }
-
+        public IDbSet<WordSource> WordSources { get; set; }
         
 
     }

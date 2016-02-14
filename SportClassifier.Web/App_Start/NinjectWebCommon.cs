@@ -10,6 +10,11 @@ namespace SportClassifier.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using SportClassifier.Data;
+    using SportClassifier.Web.Infrastructure.Services.Contracts;
+    using SportClassifier.Web.Infrastructure.Services;
+    using Agromo.Web.Infrastructure.Services;
+    using SportClassifier.Web.Infrastructure.ModelBinders;
 
     public static class NinjectWebCommon
     {
@@ -75,6 +80,12 @@ namespace SportClassifier.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+              kernel.Bind<IUowData>().To<UowData>();
+            kernel.Bind<IKeyTypeKeyValueService>().To<KeyTypeKeyValueService>();
+            kernel.Bind<IHomeService>().To<HomeService>();
+            kernel.Bind<ICrowlingService>().To<CrowlingService>();
+            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(EntityModelBinder<>)).ToSelf();
         }
     }
 }

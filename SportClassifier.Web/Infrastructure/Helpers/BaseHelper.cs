@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Resources;
+using System.Text.RegularExpressions;
 using System.Web;
 
 
@@ -31,16 +33,33 @@ namespace SportClassifier.Web.Infrastructure.Helpers
             return result;
         }
 
+        public static string ScrubHtml(string html)
+        {
+            var step1 = Regex.Replace(html, @"<[^>]+>|&nbsp;", "").Trim();
+            var step2 = Regex.Replace(step1, @"\s{2,}", " ");
+            var step3 = Regex.Replace(step2, @"\r\n?|\n", " ");
+            var step4 = Regex.Replace(step3, @"[\d-]", " ");
+            return step4;
+        }
+
+        public static void WriteInFile(string fileName, string text)
+        {
+            using (StreamWriter writetext = new StreamWriter(fileName))
+            {
+                writetext.WriteLine(text);
+            }
+        }
+
         public static string MakeToastPlusScriptTag(SportClassifier.Web.Infrastructure.Enums.Enumerations.ToastrType toastrType, string message)
         {
-             return string.Format("<script language='javascript' type='text/javascript'>toastr.{0}('{1}');</script>",toastrType.ToString(),message);
+            return string.Format("<script language='javascript' type='text/javascript'>toastr.{0}('{1}');</script>", toastrType.ToString(), message);
 
             //return string.Format("toastr.{0}('{1}');", toastrType.ToString(), message);
         }
 
         public static string MakeToast(SportClassifier.Web.Infrastructure.Enums.Enumerations.ToastrType toastrType, string message)
         {
-           
+
             return string.Format("toastr.{0}('{1}');", toastrType.ToString(), message);
         }
 

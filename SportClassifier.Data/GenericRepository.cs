@@ -105,5 +105,11 @@ namespace SportClassifier.Data
 
             entry.State = EntityState.Detached;
         }
+
+
+        public T FirstOrDefault(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        {
+            return this.All().FirstOrDefault(predicate);
+        }
     }
 }

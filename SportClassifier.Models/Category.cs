@@ -31,6 +31,9 @@ namespace SportClassifier.Models
         public string Thumbnail { get; set; }
         public string Url { get; set; }
 
+        public int?  BaseCategoryId { get; set; }
+         public virtual Category BaseCategory { get; set; }
+
         public virtual ICollection<Category> ChildCategories { get; set; }
         public virtual Category ParentCategory { get; set; }
 

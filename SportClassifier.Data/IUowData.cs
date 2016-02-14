@@ -23,7 +23,8 @@ namespace SportClassifier.Data
         IRepository<Setting> Settings { get;  }
 
         IRepository<FailedUrl> FailedUrls { get;  }
-
+            IRepository<WordSource> WordSources { get;  }
+        
         
 
         int SaveChanges();

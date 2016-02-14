@@ -27,9 +27,10 @@ namespace SportClassifier.Models
         public string Author { get; set; }
         public string Media { get; set; }
         public string Content { get; set; }
+        public string CleanContent { get; set; }
         public string Description { get; set;}
         public bool IsPublic { get; set; }
-
+        public bool UsedForClassication { get; set; }
 
     }
 }

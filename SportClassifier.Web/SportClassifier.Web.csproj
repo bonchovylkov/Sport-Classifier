@@ -56,6 +56,10 @@
       <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="HtmlTags, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlTags.3.0.0.186\lib\4.0\HtmlTags.dll</HintPath>
       <Private>True</Private>
@@ -267,18 +271,66 @@
     </Compile>
     <Compile Include="Infrastructure\AzureHelpers\CloudStorage.cs" />
     <Compile Include="Infrastructure\AzureHelpers\MediaUploader.cs" />
+    <Compile Include="Infrastructure\Classifier\AbstractClassifier.cs" />
+    <Compile Include="Infrastructure\Classifier\Bayesian\BayesianClassifier.cs" />
+    <Compile Include="Infrastructure\Classifier\Bayesian\ICategorizedWordsDataSource.cs" />
+    <Compile Include="Infrastructure\Classifier\Bayesian\IDbConnectionManager.cs" />
+    <Compile Include="Infrastructure\Classifier\Bayesian\IWordsDataSource.cs" />
+    <Compile Include="Infrastructure\Classifier\Bayesian\WordProbability.cs" />
+    <Compile Include="Infrastructure\Classifier\Bayesian\WordsDataSourceException.cs" />
+    <Compile Include="Infrastructure\Classifier\ClassifierException.cs" />
+    <Compile Include="Infrastructure\Classifier\StopWords\CustomizableStopWordProvider.cs" />
+    <Compile Include="Infrastructure\Classifier\StopWords\DefaultStopWordProvider.cs" />
+    <Compile Include="Infrastructure\Classifier\Tokenizers\DefaultTokenizer.cs" />
+    <Compile Include="Infrastructure\Classifier\ICategorizedClassifier.cs" />
+    <Compile Include="Infrastructure\Classifier\ICategorizedClassifierConstants.cs" />
+    <Compile Include="Infrastructure\Classifier\IClassifier.cs" />
+    <Compile Include="Infrastructure\Classifier\IClassifierConstants.cs" />
+    <Compile Include="Infrastructure\Classifier\StopWords\IStopWordProvider.cs" />
+    <Compile Include="Infrastructure\Classifier\Tokenizers\ITokenizer.cs" />
+    <Compile Include="Infrastructure\Classifier\Train\ITrainable.cs" />
+    <Compile Include="Infrastructure\Classifier\Train\ITrainableClassifier.cs" />
+    <Compile Include="Infrastructure\Classifier\Stemmers\LucenePorterStemmer.cs" />
+    <Compile Include="Infrastructure\Classifier\Stemmers\PorterStemmer.cs" />
+    <Compile Include="Infrastructure\Classifier\Tokenizers\SimpleHtmlTokenizer.cs" />
+    <Compile Include="Infrastructure\Classifier\Utilities.cs" />
     <Compile Include="Infrastructure\Const\Constants.cs" />
     <Compile Include="Infrastructure\Enums\Enumerations.cs" />
     <Compile Include="Infrastructure\Helpers\BaseHelper.cs" />
     <Compile Include="Infrastructure\Helpers\CallContext.cs" />
+    <Compile Include="Infrastructure\Helpers\CustomWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Infrastructure\Helpers\HtmlExtensions.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\BleacherReport.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\Bundesliga.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\CaughtOffside.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\DailyMailManager.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\EspnFC.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\Football365.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\FoxSports.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\Gazzetta.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\GoalCom.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\IndependentCoUk.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\Marca.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\MirrorCoUK.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\PlanetF1.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\SBNation.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\SkySportsManager.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\SportsYahoo.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\TelegraphCoUk.cs" />
+    <Compile Include="Infrastructure\Helpers\Parsers\TheSunManager.cs" />
+    <Compile Include="Infrastructure\Helpers\SourceManager.cs" />
     <Compile Include="Infrastructure\Mapping\AutoMapperConfig.cs" />
     <Compile Include="Infrastructure\Mapping\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="Infrastructure\ModelBinders\EntityModelBinder.cs" />
     <Compile Include="Infrastructure\ModelBinders\EntityModelBinderProvider.cs" />
+    <Compile Include="Infrastructure\MoreLinq\MoreEnumerable.DistinctBy.cs" />
     <Compile Include="Infrastructure\ObjectFactory.cs" />
     <Compile Include="Infrastructure\Services\BaseService.cs" />
+    <Compile Include="Infrastructure\Services\ClasifyService.cs" />
+    <Compile Include="Infrastructure\Services\Contracts\IClasifyService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\ICrowlingService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\IHomeService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\IKeyTypeKeyValueService.cs" />
@@ -292,31 +344,120 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-changes.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\d3\colorbrewer\colorbrewer.css" />
+    <Content Include="Content\d3\style.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\images\border-image.png" />
+    <Content Include="Content\images\icons.png" />
+    <Content Include="Content\images\maps.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\img\agromo_logo_notext.png" />
+    <Content Include="Content\img\generalFile.png" />
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\icons.png" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\main-logo.png" />
+    <Content Include="Content\img\maps.png" />
+    <Content Include="Content\img\Portfolio\01.jpg" />
+    <Content Include="Content\img\Portfolio\02.png" />
+    <Content Include="Content\img\Portfolio\03.jpg" />
+    <Content Include="Content\img\Portfolio\04.jpg" />
+    <Content Include="Content\img\Portfolio\05.jpg" />
+    <Content Include="Content\img\Portfolio\06.jpg" />
+    <Content Include="Content\img\progressbar.gif" />
+    <Content Include="Content\img\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\img\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\img\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\img\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\img\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\img\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\img\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\img\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\img\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\img\ui-icons_222222_256x240.png" />
+    <Content Include="Content\img\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\img\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\img\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\img\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui-timepicker-addon.min.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Content\viz-test\HtmlPage1.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\ai.0.21.5-build00175.js" />
-    <Content Include="Scripts\ai.0.21.5-build00175.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Infrastructure\Classifier\StopWords\DefaultStopWords.txt" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\d3\d3.geo.js" />
+    <Content Include="Scripts\d3\d3.js" />
+    <Content Include="Scripts\d3\index-map.js" />
+    <Content Include="Scripts\d3\world-countries.js" />
+    <Content Include="Scripts\FileUpload\canvas-to-blob.min.js" />
+    <Content Include="Scripts\FileUpload\jquery.fileupload-ip.js" />
+    <Content Include="Scripts\FileUpload\jquery.fileupload-ui.css" />
+    <Content Include="Scripts\FileUpload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\FileUpload\jquery.fileupload.js" />
+    <Content Include="Scripts\FileUpload\jquery.iframe-transport.js" />
+    <Content Include="Scripts\FileUpload\load-image.min.js" />
+    <Content Include="Scripts\FileUpload\locale.js" />
+    <Content Include="Scripts\FileUpload\main.js" />
+    <Content Include="Scripts\FileUpload\tmpl.min.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery-ui-timepicker-addon.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\layout\app.js" />
+    <Content Include="Scripts\layout\filesUpload.js" />
+    <Content Include="Scripts\layout\httpRequester.js" />
+    <Content Include="Scripts\layout\rsvp.min.js" />
+    <Content Include="Scripts\layout\utils.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\toastr\toastr.js" />
+    <Content Include="Scripts\toastr\toastr.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -331,7 +472,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -361,7 +501,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\viz-test\Archive.zip" />
     <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\toastr\toastr.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SportClassifier.Data\SportClassifier.Data.csproj">

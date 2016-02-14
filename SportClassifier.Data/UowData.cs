@@ -103,5 +103,11 @@ namespace SportClassifier.Data
         {
             get { return this.GetRepository<FailedUrl>(); }
         }
+
+
+        public IRepository<WordSource> WordSources
+        {
+             get { return this.GetRepository<WordSource>(); }
+        }
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="Source.cs" />
     <Compile Include="SourceWebsite.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="WordSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

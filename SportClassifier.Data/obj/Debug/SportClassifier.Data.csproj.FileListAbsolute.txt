@@ -20,3 +20,19 @@ E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportC
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.changeFkSourceWebsite.resources
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.updateSourceCategoryFK.resources
 E:\SU\diplomna\Web Project\SportClassifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.Migrations.updateCategory.resources
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\SportClassifier.Data.dll.config
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\SportClassifier.Data.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\SportClassifier.Data.pdb
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\EntityFramework.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\SportClassifier.Models.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\SportClassifier.Models.pdb
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\EntityFramework.xml
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.csprojResolveAssemblyReference.cache
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Data\obj\Debug\SportClassifier.Data.pdb
