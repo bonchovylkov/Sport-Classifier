@@ -18,9 +18,9 @@ namespace SportClassifier.ManualCrow
         static void Main(string[] args)
         {
             DbContext = new UowData();
-          //  crowler = new CrowlingService(DbContext);
+            crowler = new CrowlingService(DbContext);
             classifier = new ClasifyService(DbContext);
-             classifier.TrainModel();
+            classifier.TrainModel();
             //var news = DbContext.NewsItems.All().ToList();
             //for (int i = 0; i < news.Count; i++)
             //{
@@ -34,16 +34,24 @@ namespace SportClassifier.ManualCrow
 
             
            // UpdateCategories();
-            //try
-            //{
-            //    crowler.Crow();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
 
-            //}
+            //Crow();
+           
 
+        }
+
+        private static void Crow()
+        {
+             try
+            {
+                //crowler.Crow();
+                crowler.Crow(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
         }
 
       

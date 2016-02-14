@@ -24,25 +24,27 @@ namespace SportClassifier.Web.Infrastructure.Services
         {
 
         }
-        public void Crow()
+        public int Crow(bool? IsForTest=null)
         {
             List<Source> sources = this.Data.Sources.All(new string[] { "Category", "SourceWebsite" }).ToList();
 
 
-
+            int downloadedNews = 0;
             foreach (var source in sources)
             {
                 if (!(source.LastUpdated.HasValue && source.LastUpdated.Value > DateTime.Now.AddMinutes(30)) && source.IsActive)
                 {
-                    ReadSource(source);
+                   downloadedNews += ReadSource(source,IsForTest);
                 }
 
             }
 
+            return downloadedNews;
+
 
         }
 
-        private void ReadSource(Source source)
+        private int ReadSource(Source source,bool? IsForTest)
         {
             var count = 0;
             var client = new WebClient();
@@ -59,7 +61,7 @@ namespace SportClassifier.Web.Infrastructure.Services
                         {
                             try
                             {
-                                if (ReadFeedItem(i, source))
+                                if (ReadFeedItem(i, source,IsForTest))
                                     count++;
                                 Thread.Sleep(500);
                             }
@@ -88,7 +90,7 @@ namespace SportClassifier.Web.Infrastructure.Services
                             {
                                 try
                                 {
-                                    if (ReadFeedItem(i, source))
+                                    if (ReadFeedItem(i, source,IsForTest))
                                         count++;
                                     Thread.Sleep(500);
                                 }
@@ -128,10 +130,13 @@ namespace SportClassifier.Web.Infrastructure.Services
             {
                 //TODO handle exc
             }
+
+           
             Console.WriteLine(source.Name);
+             return count;
         }
 
-        private bool ReadFeedItem(RssItem i, Source source)
+        private bool ReadFeedItem(RssItem i, Source source,bool? IsForTest)
         {
 
             //Check if there is another article with the same title
@@ -174,6 +179,7 @@ namespace SportClassifier.Web.Infrastructure.Services
                 article.DatePublished = (i.PublicationDate == DateTime.MinValue ? DateTime.Now : i.PublicationDate).Ticks;
                 article.Categories.Add(this.Data.Categories.All().FirstOrDefault(s => s.Id == source.CategoryId));
                 article.UsedForClassication = false;
+                article.IsForTest = IsForTest.HasValue ? IsForTest.Value : false;
                 this.Data.NewsItems.Add(article);
                 this.Data.SaveChanges();
 
@@ -212,7 +218,7 @@ namespace SportClassifier.Web.Infrastructure.Services
             }
         }
 
-        private bool ReadFeedItem(AtomEntry i, Source source)
+        private bool ReadFeedItem(AtomEntry i, Source source,bool? IsForTest)
         {
 
             //Check if there is another article with the same title
@@ -255,6 +261,7 @@ namespace SportClassifier.Web.Infrastructure.Services
                 article.DatePublished = (i.UpdatedOn == DateTime.MinValue ? DateTime.Now : i.UpdatedOn).Ticks;
                 article.Categories.Add(this.Data.Categories.All().FirstOrDefault(s => s.Id == source.CategoryId));
                 article.UsedForClassication = false;
+                article.IsForTest = IsForTest.HasValue ? IsForTest.Value : false;
                 this.Data.NewsItems.Add(article);
                 this.Data.SaveChanges();
 

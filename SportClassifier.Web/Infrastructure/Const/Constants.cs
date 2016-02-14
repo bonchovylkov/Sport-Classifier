@@ -8,6 +8,7 @@ namespace SportClassifier.Web.Infrastructure.Const
     public class Constants
     {
 
+        public const int DEFAULT_PAGE_SIZE = 20;
         /// <summary>
         /// we find this value by experiment in a couple of attemps when the area was devided by this value, it's calculated in square meters
         /// </summary>

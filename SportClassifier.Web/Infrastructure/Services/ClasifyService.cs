@@ -173,26 +173,25 @@ namespace SportClassifier.Web.Infrastructure.Services
             int countTrainedNews = 0;
             List<Category> mainCategories = this.Data.Categories.All().DistinctBy(s => s.BaseCategoryId).ToList();
             List<Category> allCategories = this.Data.Categories.All(new string[] { "NewsItems" }).ToList();
-            foreach (var category in allCategories)
+
+            //get all news that havent been used for classification and arent for test
+            var newsItems = this.Data.NewsItems.All(new string[] { "Categories" }).Where(s => s.UsedForClassication != true && s.IsForTest != true).ToList();
+            for (int i = 0; i < newsItems.Count; i++)
             {
-                var newsItems = category.NewsItems.Where(s => s.UsedForClassication != true).ToList();
-                for (int i = 0; i < newsItems.Count; i++)
+                var article = newsItems[i];
+                var category = article.Categories.FirstOrDefault();
+                if (category != null)
                 {
-                    var article = category.NewsItems.ElementAt(i);
-                    
-                    //string text = article.CleanContent; - this take to mach time 
-
-                        string text = article.Header;
-
                     if (category.BaseCategory == null)
                     {
                         continue;
                     }
 
+                    //string text = article.CleanContent; - this take to mach time 
+                    string text = article.Header;
+
                     try
                     {
-
-
                         //teach this category with this content
                         classifier.TeachMatch(category.BaseCategory.Name, text, category.BaseCategoryId);
 
@@ -220,11 +219,65 @@ namespace SportClassifier.Web.Infrastructure.Services
                     catch (Exception ex)
                     {
                         BaseHelper.WriteInFile("errors.txt", ex.Message);
-                        
+
                     }
 
                 }
+
             }
+
+            //foreach (var category in allCategories)
+            //{
+            //    var newsItems = category.NewsItems.Where(s => s.UsedForClassication != true && s.IsForTest!=true).ToList();
+            //    for (int i = 0; i < newsItems.Count; i++)
+            //    {
+            //        var article = category.NewsItems.ElementAt(i);
+
+            //        //string text = article.CleanContent; - this take to mach time 
+
+            //            string text = article.Header;
+
+            //        if (category.BaseCategory == null)
+            //        {
+            //            continue;
+            //        }
+
+            //        try
+            //        {
+
+
+            //            //teach this category with this content
+            //            classifier.TeachMatch(category.BaseCategory.Name, text, category.BaseCategoryId);
+
+            //            for (int j = 0; j < mainCategories.Count; j++)
+            //            {
+            //                if (mainCategories[j].BaseCategory == null)
+            //                {
+            //                    continue;
+            //                }
+
+            //                if (category.Id != mainCategories[j].Id)
+            //                {
+            //                    //teach each other category that is not match for this sentance
+            //                    classifier.TeachNonMatch(mainCategories[j].BaseCategory.Name, text, mainCategories[j].BaseCategory.Id);
+            //                }
+            //            }
+
+            //            countTrainedNews++;
+            //            article.UsedForClassication = true;
+            //            this.Data.NewsItems.Update(article);
+            //            this.Data.SaveChanges();
+
+
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            BaseHelper.WriteInFile("errors.txt", ex.Message);
+
+            //        }
+
+            //    }
+            //}
 
             //foreach (var category in TrainingData)
             //{
@@ -258,6 +311,28 @@ namespace SportClassifier.Web.Infrastructure.Services
 
 
             return countTrainedNews;
+        }
+
+
+        public string ClassifyArticle(int articleId)
+        {
+            BayesianClassifier classifier =
+              new BayesianClassifier(this, new DefaultTokenizer(), new CustomizableStopWordProvider());
+
+            NewsItem article = this.Data.NewsItems.FirstOrDefault(s => s.Id == articleId);
+             List<Category> mainCategories = this.Data.Categories.All().DistinctBy(s => s.BaseCategoryId).ToList();
+             string category = "";
+             for (int i = 0; i < mainCategories.Count; i++)
+             {
+                 bool isMatch = classifier.IsMatch(mainCategories[i].Name, article.Header, mainCategories[i].Id);
+                 if (isMatch)
+                 {
+                     category = mainCategories[i].Name;
+                     break;
+                 }
+             }
+
+             return category;
         }
     }
 }

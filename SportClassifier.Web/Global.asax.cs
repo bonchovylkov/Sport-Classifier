@@ -1,5 +1,6 @@
 ﻿using SportClassifier.Data;
 using SportClassifier.Data.Migrations;
+using SportClassifier.Web.Infrastructure.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,6 +23,7 @@ namespace SportClassifier.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
              Database.SetInitializer<ApplicationDbContext>(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+            AutoMapperConfig.Execute();
         }
     }
 }

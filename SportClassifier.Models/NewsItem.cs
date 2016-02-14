@@ -31,6 +31,11 @@ namespace SportClassifier.Models
         public string Description { get; set;}
         public bool IsPublic { get; set; }
         public bool UsedForClassication { get; set; }
+        // this property  separates two types of news 
+        // -one for training
+        //- one for test
+        //if it's true it meatns that the news can be used for test 
+        public bool IsForTest { get; set; }
 
     }
 }

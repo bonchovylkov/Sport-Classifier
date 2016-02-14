@@ -28,6 +28,7 @@
 '********************************************************************************/
 #endregion
 
+using SportClassifier.Web.Infrastructure.Classifier.StopWords;
 using System;
 using System.Collections;
 using System.IO;
@@ -46,11 +47,18 @@ namespace SportClassifier.Web.Infrastructure.Classifier
 		/// </param>
 		public CustomizableStopWordProvider(string filename)
 		{
+
             _path = @"../../resources/" + filename; // Directory.GetCurrentDirectory() + "\\" + filename;
 			Init();
 		}
 
-		public CustomizableStopWordProvider() : this(DEFAULT_STOPWORD_PROVIDER_FILENAME) {}
+       	public CustomizableStopWordProvider()
+		{
+
+            _words = DefaultInMemoryStopWordsProvider.GetStopWords().ToArray();
+		}
+
+		
 
 		protected void Init()
 		{

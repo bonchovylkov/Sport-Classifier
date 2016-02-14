@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "CrowOptions";
+}
+
+<h2>Crow Options</h2>
+
+<div>Crowled Train data: <div id="target"></div></div> 
+    @using (Ajax.BeginForm("CrowTrainData", "Home",
+            new AjaxOptions
+            {
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "target"
+            }))
+    {
+        <input type="submit" value="Crow Train Data" />
+    }
+

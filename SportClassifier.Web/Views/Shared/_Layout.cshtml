@@ -3,10 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @*<title>@ViewBag.Title - My ASP.NET Application</title>*@
-    <title>Agromo</title>
+    <title>Sport Classifier</title>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -28,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("AGROMO", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("Sport classifier", "Index", "Home", null, new { @class = "navbar-brand" })
 
             </div>
 
@@ -40,20 +38,19 @@
                     </li>
                     <li class="page-scroll">@Html.ActionLink("Home", "Index", "Home")</li>
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
+
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Field Management <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Classification data<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="page-scroll">@Html.ActionLink("Select field from map", "ShowSelectMap", "Home")</li>
-                                <li class="page-scroll">@Html.ActionLink("Add field from file", "ShowUserCropFields", "UserCropFields")</li>
-                                <li class="page-scroll">@Html.ActionLink("My Fields", "FieldDetailsEdit", "UserCropFields")</li>
-                                @*<li class="divider"></li>*@
+                               <li class="page-scroll">@Html.ActionLink("Show training data", "TrainingData", "Home")</li>
+                                <li class="page-scroll">@Html.ActionLink("Show Test data", "TestData", "Home")</li>
+                                @*<li class="page-scroll">@Html.ActionLink("My Fields", "FieldDetailsEdit", "UserCropFields")</li>*@
+                                <li class="divider"></li>
                             </ul>
                         </li>
-                    }
+                    
 
-                    <li class="page-scroll">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="page-scroll">@Html.ActionLink("Crawl Options", "CrowOptions", "Home")</li>
 
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -69,51 +66,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>####<br>######</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Agromo</h3>
-                        <p>Spatial agroculture monitoring</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; AGROMO 2015
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+  
 
 
 

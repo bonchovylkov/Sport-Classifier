@@ -198,7 +198,6 @@ C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\WebA
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\WebGrease.dll
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\SportClassifier.Data.pdb
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\SportClassifier.Models.pdb
-C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\AutoMapper.xml
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\HtmlAgilityPack.pdb
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\HtmlAgilityPack.xml
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\Microsoft.AI.DependencyCollector.xml

@@ -7,6 +7,6 @@ namespace SportClassifier.Web.Infrastructure.Services.Contracts
 {
     public interface ICrowlingService
     {
-        void Crow();
+        int Crow(bool? IsForTest=null);
     }
 }

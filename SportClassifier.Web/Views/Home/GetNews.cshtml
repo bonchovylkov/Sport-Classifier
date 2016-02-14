@@ -1,0 +1,8 @@
+﻿@model SportClassifier.Web.Models.NewsItemViewModel
+@{
+    ViewBag.Title = "News";
+}
+
+<h2>@Model.Title</h2>
+
+@Html.Raw(Model.Content)

@@ -171,7 +171,6 @@ C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bi
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.xml
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bin\Debug\HtmlAgilityPack.xml
-C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bin\Debug\AutoMapper.xml
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bin\Debug\SportClassifier.Data.pdb
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web.Tests\bin\Debug\EntityFramework.xml

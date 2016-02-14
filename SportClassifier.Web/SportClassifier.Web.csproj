@@ -52,9 +52,9 @@
       <HintPath>..\packages\Argotic.Extensions.2008.0.2.0\lib\Net35\Argotic.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Infrastructure\DLLS\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
@@ -264,6 +264,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -280,6 +281,7 @@
     <Compile Include="Infrastructure\Classifier\Bayesian\WordsDataSourceException.cs" />
     <Compile Include="Infrastructure\Classifier\ClassifierException.cs" />
     <Compile Include="Infrastructure\Classifier\StopWords\CustomizableStopWordProvider.cs" />
+    <Compile Include="Infrastructure\Classifier\StopWords\DefaultInMemoryStopWordsProvider.cs" />
     <Compile Include="Infrastructure\Classifier\StopWords\DefaultStopWordProvider.cs" />
     <Compile Include="Infrastructure\Classifier\Tokenizers\DefaultTokenizer.cs" />
     <Compile Include="Infrastructure\Classifier\ICategorizedClassifier.cs" />
@@ -328,18 +330,30 @@
     <Compile Include="Infrastructure\ModelBinders\EntityModelBinderProvider.cs" />
     <Compile Include="Infrastructure\MoreLinq\MoreEnumerable.DistinctBy.cs" />
     <Compile Include="Infrastructure\ObjectFactory.cs" />
+    <Compile Include="Infrastructure\Paging\IPagedList.cs" />
+    <Compile Include="Infrastructure\Paging\PagedList.cs" />
+    <Compile Include="Infrastructure\Paging\Pager.cs" />
+    <Compile Include="Infrastructure\Paging\PagerOptions.cs" />
+    <Compile Include="Infrastructure\Paging\PagerOptionsBuilder.cs" />
+    <Compile Include="Infrastructure\Paging\PaginationModel.cs" />
+    <Compile Include="Infrastructure\Paging\PagingExtentions.cs" />
+    <Compile Include="Infrastructure\Paging\RouteValueDictionaryExtentions.cs" />
     <Compile Include="Infrastructure\Services\BaseService.cs" />
     <Compile Include="Infrastructure\Services\ClasifyService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\IClasifyService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\ICrowlingService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\IHomeService.cs" />
     <Compile Include="Infrastructure\Services\Contracts\IKeyTypeKeyValueService.cs" />
+    <Compile Include="Infrastructure\Services\Contracts\INewsService.cs" />
     <Compile Include="Infrastructure\Services\CrowlingService.cs" />
     <Compile Include="Infrastructure\Services\HomeService.cs" />
     <Compile Include="Infrastructure\Services\KeyTypeKeyValueService.cs" />
+    <Compile Include="Infrastructure\Services\NewsService.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -414,6 +428,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Infrastructure\DLLS\AutoMapper.dll" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\d3\d3.geo.js" />
@@ -492,9 +507,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\GetNews.cshtml" />
+    <Content Include="Views\Shared\_NewsPartial.cshtml" />
+    <Content Include="Views\Home\TrainingData.cshtml" />
+    <Content Include="Views\Home\TestData.cshtml" />
+    <Content Include="Views\Home\CrowOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

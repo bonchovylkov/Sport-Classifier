@@ -88,7 +88,7 @@ namespace SportClassifier.Web.Infrastructure.Classifier.Bayesian
 
         public double Classify(string category, string[] words,int? catId=null)
         {
-            WordProbability[] wps = CalcWordsProbability(category, words);
+            WordProbability[] wps = CalcWordsProbability(category, words,catId);
             return NormalizeSignificance(CalculateOverallProbability(wps));
         }
 

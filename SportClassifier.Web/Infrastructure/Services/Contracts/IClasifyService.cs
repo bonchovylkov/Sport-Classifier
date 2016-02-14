@@ -9,5 +9,7 @@ namespace SportClassifier.Web.Infrastructure.Services.Contracts
     public interface IClasifyService : ICategorizedWordsDataSource
     {
         int TrainModel();
+
+        string ClassifyArticle(int articleId);
     }
 }

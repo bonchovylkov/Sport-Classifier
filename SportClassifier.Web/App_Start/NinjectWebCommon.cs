@@ -80,10 +80,14 @@ namespace SportClassifier.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-              kernel.Bind<IUowData>().To<UowData>();
+            kernel.Bind<IUowData>().To<UowData>();
             kernel.Bind<IKeyTypeKeyValueService>().To<KeyTypeKeyValueService>();
             kernel.Bind<IHomeService>().To<HomeService>();
             kernel.Bind<ICrowlingService>().To<CrowlingService>();
+            kernel.Bind<INewsService>().To<NewsService>();
+            kernel.Bind<IClasifyService>().To<ClasifyService>();
+
+
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind(typeof(EntityModelBinder<>)).ToSelf();
         }
