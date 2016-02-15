@@ -11,5 +11,9 @@ namespace SportClassifier.Web.Infrastructure.Services.Contracts
         int TrainModel();
 
         string ClassifyArticle(int articleId);
+
+
+
+        void ClassifyDataSourceResult(Kendo.Mvc.UI.DataSourceResult news);
     }
 }

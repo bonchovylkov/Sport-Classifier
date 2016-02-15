@@ -24,6 +24,6 @@ namespace SportClassifier.Web.Infrastructure.Classifier
 		/// <param name="category">The category to check against.</param>
 		/// <param name="input">The string to classify.</param>
 		/// <returns>True if the input string has a probability >= the cutoff probability of matching.</returns>
-		bool IsMatch(string category, string input,int? catId=null);
+		bool IsMatch(string category, string input,ref decimal? probabilityResult,int? catId=null);
 	}
 }

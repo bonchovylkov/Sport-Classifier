@@ -17,5 +17,9 @@ namespace SportClassifier.Web.Infrastructure.Services.Contracts
         IPagedList<NewsItemViewModel> GetTrainingData(int currentPageIndex, int defaultPageSize);
 
         IPagedList<NewsItemViewModel> GetTestData(int currentPageIndex, int defaultPageSize);
+
+        
+
+        Kendo.Mvc.UI.DataSourceResult GetCategorizedNews(Kendo.Mvc.UI.DataSourceRequest request);
     }
 }

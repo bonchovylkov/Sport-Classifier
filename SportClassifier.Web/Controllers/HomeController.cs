@@ -7,6 +7,8 @@ using SportClassifier.Web.Infrastructure.Paging;
 using SportClassifier.Web.Infrastructure.Services.Contracts;
 using SportClassifier.Web.Infrastructure.Const;
 using SportClassifier.Web.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace SportClassifier.Web.Controllers
 {
@@ -73,18 +75,16 @@ namespace SportClassifier.Web.Controllers
 
 
 
-        public ActionResult About()
+        public ActionResult ListAllTestResults()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult ReadAll([DataSourceRequest] DataSourceRequest request)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+            DataSourceResult news = this.newsService.GetCategorizedNews(request);
+            classifyService.ClassifyDataSourceResult(news);
+            return Json(news, JsonRequestBehavior.AllowGet);
+        }   
     }
 }

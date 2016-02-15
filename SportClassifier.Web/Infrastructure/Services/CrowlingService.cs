@@ -26,7 +26,9 @@ namespace SportClassifier.Web.Infrastructure.Services
         }
         public int Crow(bool? IsForTest=null)
         {
-            List<Source> sources = this.Data.Sources.All(new string[] { "Category", "SourceWebsite" }).ToList();
+            //get all without football
+            //List<Source> sources = this.Data.Sources.All(new string[] { "Category", "SourceWebsite" }).Where(s=>s.Category.BaseCategoryId!=1).ToList();
+            List<Source> sources = this.Data.Sources.All(new string[] { "Category", "SourceWebsite" }).Where(s=>s.Category.BaseCategoryId!=1).ToList();
 
 
             int downloadedNews = 0;

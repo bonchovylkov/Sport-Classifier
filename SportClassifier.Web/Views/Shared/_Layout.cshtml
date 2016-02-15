@@ -44,7 +44,7 @@
                             <ul class="dropdown-menu">
                                <li class="page-scroll">@Html.ActionLink("Show training data", "TrainingData", "Home")</li>
                                 <li class="page-scroll">@Html.ActionLink("Show Test data", "TestData", "Home")</li>
-                                @*<li class="page-scroll">@Html.ActionLink("My Fields", "FieldDetailsEdit", "UserCropFields")</li>*@
+                                <li class="page-scroll">@Html.ActionLink("All test results", "ListAllTestResults", "Home")</li>
                                 <li class="divider"></li>
                             </ul>
                         </li>
@@ -68,11 +68,19 @@
     <!-- Footer -->
   
 
+    @*<div id="calendar"></div>*@
 
-
-
+    @Scripts.Render("~/bundles/Kendo")
+    @Styles.Render("~/Content/Kendo")
     @RenderSection("scripts", required: false)
+    <script>
 
+        //test if kendo works
+        //$(document).ready(function () {
+        //    // create Calendar from div HTML element
+        //    $("#calendar").kendoCalendar();
+        //});
+    </script>
 
 </body>
 </html>

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Web;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
 
 namespace SportClassifier.Web.Infrastructure.Services
 {
@@ -53,6 +55,17 @@ namespace SportClassifier.Web.Infrastructure.Services
                 .To<NewsItemViewModel>()
                 .OrderByDescending(s=>s.DatePublished)
                 .ToPagedList(currentPageIndex, defaultPageSize);
+        }
+
+
+        public Kendo.Mvc.UI.DataSourceResult GetCategorizedNews(DataSourceRequest request)
+        {
+            return this.Data.NewsItems.All()
+                .Where(s=>s.IsForTest !=true)
+                .Project()
+                .To<NewsItemViewModel>()
+                .OrderByDescending(s=>s.DatePublished)
+                .ToDataSourceResult(request);
         }
     }
 }

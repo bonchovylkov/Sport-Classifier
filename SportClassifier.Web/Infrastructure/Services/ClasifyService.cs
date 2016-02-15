@@ -9,6 +9,8 @@ using System.Linq;
 using System.Web;
 using MoreLinq;
 using SportClassifier.Web.Infrastructure.Helpers;
+using Kendo.Mvc.UI;
+using SportClassifier.Web.Models;
 
 namespace SportClassifier.Web.Infrastructure.Services
 {
@@ -320,19 +322,69 @@ namespace SportClassifier.Web.Infrastructure.Services
               new BayesianClassifier(this, new DefaultTokenizer(), new CustomizableStopWordProvider());
 
             NewsItem article = this.Data.NewsItems.FirstOrDefault(s => s.Id == articleId);
-             List<Category> mainCategories = this.Data.Categories.All().DistinctBy(s => s.BaseCategoryId).ToList();
-             string category = "";
-             for (int i = 0; i < mainCategories.Count; i++)
-             {
-                 bool isMatch = classifier.IsMatch(mainCategories[i].Name, article.Header, mainCategories[i].Id);
-                 if (isMatch)
-                 {
-                     category = mainCategories[i].Name;
-                     break;
-                 }
-             }
+            List<Category> mainCategories = this.Data.Categories.All().DistinctBy(s => s.BaseCategoryId).ToList();
+            string category = "";
+            decimal? probResult = 0;
+            for (int i = 0; i < mainCategories.Count; i++)
+            {
+                bool isMatch = classifier.IsMatch(mainCategories[i].Name, article.Header, ref probResult, mainCategories[i].Id);
+                if (isMatch)
+                {
+                    category = mainCategories[i].Name;
+                    break;
+                }
+            }
 
-             return category;
+            return category;
+        }
+
+
+
+
+
+        public void ClassifyDataSourceResult(DataSourceResult news)
+        {
+            BayesianClassifier classifier =
+             new BayesianClassifier(this, new DefaultTokenizer(), new CustomizableStopWordProvider());
+            List<Category> mainCategories = this.Data.Categories.All().DistinctBy(s => s.BaseCategoryId).ToList();
+
+            var sequenceEnum = news.Data.GetEnumerator();
+
+            while (sequenceEnum.MoveNext())
+            {
+                var article = (sequenceEnum.Current as NewsItemViewModel);
+
+                decimal? categoryPosibiity = 0;
+                decimal? maxPropability = 0;
+                string maxProbCategory = "";
+                for (int i = 0; i < mainCategories.Count; i++)
+                {
+                    bool isMatch = classifier.IsMatch(mainCategories[i].Name, article.Header, ref categoryPosibiity, mainCategories[i].Id);
+                    if (isMatch)
+                    {
+                        article.ClassificationCategory = mainCategories[i].Name;
+                        article.ClassificationProbability = categoryPosibiity.Value;
+                        break;
+                    }
+                    else
+                    {
+                        if (categoryPosibiity > maxPropability)
+                        {
+                            maxPropability = categoryPosibiity;
+                            maxProbCategory = mainCategories[i].Name;
+                        }
+                    }
+
+                }
+
+                if (string.IsNullOrEmpty( article.ClassificationCategory))
+                {
+                    article.ClassificationCategory = maxProbCategory;
+                    article.ClassificationProbability = maxPropability.Value;
+                }
+
+
+            }
         }
     }
 }

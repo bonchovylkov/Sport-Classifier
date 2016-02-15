@@ -18,6 +18,14 @@ namespace SportClassifier.Web.Models
         //public List<string> Images { get; set; }
         public List<CategoryViewModel> Categories { get; set; }
 
+        public string BaseCategory
+        {
+            get
+            {
+                return this.Categories.FirstOrDefault().BaseCategory;
+            }
+        }
+
         public string Href { get; set; }
         public string Header { get; set; }
         public string Author { get; set; }
@@ -27,6 +35,8 @@ namespace SportClassifier.Web.Models
         public string Description { get; set; }
         public bool IsPublic { get; set; }
         public bool UsedForClassication { get; set; }
+        public decimal ClassificationProbability { get; set; }
+        public string ClassificationCategory { get; set; }
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {

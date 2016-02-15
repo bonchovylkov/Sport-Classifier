@@ -280,3 +280,5 @@ C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\zh-H
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\obj\Debug\SportClassifier.Web.csprojResolveAssemblyReference.cache
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\obj\Debug\SportClassifier.Web.dll
 C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\obj\Debug\SportClassifier.Web.pdb
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\Kendo.Mvc.dll
+C:\Users\BonchoValkov\Source\Repos\Sport-Classifier\SportClassifier.Web\bin\Kendo.Mvc.xml

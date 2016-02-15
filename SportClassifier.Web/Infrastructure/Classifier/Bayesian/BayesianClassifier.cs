@@ -64,9 +64,9 @@ namespace SportClassifier.Web.Infrastructure.Classifier.Bayesian
 
 
 
-        public bool IsMatch(string category, string input,int? catId=null)
+        public bool IsMatch(string category, string input, ref decimal? probabilityResult,int? catId=null)
         {
-            return IsMatch(category, _tokenizer.Tokenize(input),catId);
+            return IsMatch(category, _tokenizer.Tokenize(input),ref probabilityResult,catId);
         }
 
         public override double Classify(string input)
@@ -128,7 +128,7 @@ namespace SportClassifier.Web.Infrastructure.Classifier.Bayesian
 
          
 
-        public bool IsMatch(string category, string[] input,int? catId=null)
+        public bool IsMatch(string category, string[] input, ref decimal? probabilityResult,int? catId=null)
         {
             if (category == null)
                 throw new ArgumentNullException("Category cannot be null.");
@@ -141,6 +141,7 @@ namespace SportClassifier.Web.Infrastructure.Classifier.Bayesian
            //string[] stemmedInput = LucenePorterStemmer.ExecuteSteamming(input.ToList()).ToArray();
 
             double matchProbability = Classify(category, input,catId);
+            probabilityResult = (decimal)matchProbability;
 
             return (matchProbability >= cutoff);
         }

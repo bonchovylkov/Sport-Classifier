@@ -1,0 +1,52 @@
+﻿ @model IEnumerable<SportClassifier.Web.Models.NewsItemViewModel>
+@{
+    ViewBag.Title = "ListAllTestResults";
+}
+
+<style>
+    /*.grid-hight-10 {
+    min-height:700px;
+    }*/
+    .k-grid-content {
+    min-height:500px!important;
+    }
+</style>
+<h2>ListAllTestResults</h2>
+
+@(Html.Kendo().Grid(Model)
+    .Name("Grid")
+    
+    .HtmlAttributes(new { @class = "grid-hight-10" })
+    .Columns(columns =>
+    {
+        columns.Bound(u => u.Title).Sortable(true);
+        columns.Bound(u => u.BaseCategory).Sortable(true);
+        columns.Bound(u => u.MainPic).ClientTemplate(
+
+              "<img width='100px' src='#:MainPic#' alt='course picture' />"
+
+            ).Width(150);
+        columns.Bound(u => u.ClassificationProbability).Sortable(true);
+        columns.Bound(u => u.ClassificationCategory).Width(300).Sortable(true);
+    })
+
+    .Groupable()
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .Filterable()
+   .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(10)
+            .Model(model =>
+                {
+                    model.Id(u => u.Id);
+                    model.Field(m => m.Id).Editable(false);
+                    //model.Field(m => m.Id).Editable(false);
+                    //model.Field(m => m.Id).Editable(false);
+                    //model.Field(m => m.Id).Editable(false);
+                })
+                .Read(read => read.Action("ReadAll", "Home"))
+        //    .Destroy(destroy => destroy.Action("Destroy", "CertificatesAdmin"))
+        //    .Create(create => create.Action("Create", "CertificatesAdmin"))
+))
