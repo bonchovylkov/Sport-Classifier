@@ -325,6 +325,7 @@ namespace SportClassifier.Web.Infrastructure.Services
             List<Category> mainCategories = this.Data.Categories.All().DistinctBy(s => s.BaseCategoryId).ToList();
             string category = "";
             decimal? probResult = 0;
+            decimal? maxProbResult = 0;
             for (int i = 0; i < mainCategories.Count; i++)
             {
                 bool isMatch = classifier.IsMatch(mainCategories[i].Name, article.Header, ref probResult, mainCategories[i].Id);
@@ -332,6 +333,14 @@ namespace SportClassifier.Web.Infrastructure.Services
                 {
                     category = mainCategories[i].Name;
                     break;
+                }
+                else
+                {
+                    if (probResult>maxProbResult)
+                    {
+                        maxProbResult = probResult;
+                        category= mainCategories[i].Name;
+                    }
                 }
             }
 

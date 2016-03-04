@@ -61,7 +61,7 @@ namespace SportClassifier.Web.Infrastructure.Services
         public Kendo.Mvc.UI.DataSourceResult GetCategorizedNews(DataSourceRequest request)
         {
             return this.Data.NewsItems.All()
-                .Where(s=>s.IsForTest !=true)
+                .Where(s=>s.IsForTest !=true) //this should be == but for the test
                 .Project()
                 .To<NewsItemViewModel>()
                 .OrderByDescending(s=>s.DatePublished)

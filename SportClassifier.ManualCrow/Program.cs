@@ -20,7 +20,7 @@ namespace SportClassifier.ManualCrow
             DbContext = new UowData();
             crowler = new CrowlingService(DbContext);
             classifier = new ClasifyService(DbContext);
-            classifier.TrainModel();
+           // classifier.TrainModel();
             //var news = DbContext.NewsItems.All().ToList();
             //for (int i = 0; i < news.Count; i++)
             //{
@@ -35,7 +35,10 @@ namespace SportClassifier.ManualCrow
             
            // UpdateCategories();
 
-           // Crow();
+            Crow();
+
+
+
            
 
         }
@@ -44,8 +47,8 @@ namespace SportClassifier.ManualCrow
         {
              try
             {
-                //crowler.Crow();
-                crowler.Crow(true);
+                crowler.Crow();
+               // crowler.Crow(true);
             }
             catch (Exception ex)
             {
@@ -88,5 +91,16 @@ namespace SportClassifier.ManualCrow
 
             DbContext.SaveChanges();
         }
+
+
+
+
+//        select count(*),c.BaseCategoryId from NewsItems s
+//join NewsItemCategories p on p.NewsItem_Id = s.Id
+//join Categories c on c.Id = p.Category_Id
+//group by c.BaseCategoryId
+
+
+
     }
 }
